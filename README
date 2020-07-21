@@ -1,0 +1,34 @@
+Hello and welcome to my "Mastering Data Structures and Algorithms" repo.
+
+I understand this repo is not traditional by not involving projects.
+
+My goal is to fully understand the concept to implement them from scratch and or solve 
+problems using these techniques with ease.
+
+Here, you can inspect my code quality, documentation, and track my progress.
+
+Each code file will contain my solution to problems that can be found on 'Cracking the Coding Interview" book or from the website "LeetCode.com".
+
+Below are lists of what I am or will master in.
+
+Data Structures:
+- Linked Lists
+- Trees, Tries & Graphs
+- Stacks & Queues
+- Heaps
+- Vectors / ArrayLists
+- Hash Tables
+
+Algorithms:
+- Breadth-First Search
+- Depth-First Search
+- Binary Search
+- Merge Sort
+- Quick Sort
+
+Concepts 
+- Bit Manipulation
+- Memory (Stack vs. Heap)
+- Recursion
+- Dynamic Programming
+- Big Time & Space
