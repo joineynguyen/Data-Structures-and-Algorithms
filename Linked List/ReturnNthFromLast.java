@@ -1,8 +1,8 @@
 //By: Joiney Nguyen
 //Description: Return node value of the node that is Nth position from the end.
-//UPDATE (7/25/2020): Changed LinkedList class to ListNode class for cleaner code.
+//UPDATE (7/23/2020): Changed LinkedList class to ListNode class for cleaner code.
 
-public Integer returnKthToLast(LinkedList head, int k)
+public Integer returnKthToLast(ListNode head, int k)
 {
 	if(head == null)
 	{
