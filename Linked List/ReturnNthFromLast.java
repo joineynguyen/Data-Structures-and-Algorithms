@@ -1,113 +1,37 @@
 //By: Joiney Nguyen
 //Description: Return node value of the node that is Nth position from the end.
+//UPDATE (7/25/2020): Changed LinkedList class to ListNode class for cleaner code.
 
-public class LinkedList
+public Integer returnKthToLast(LinkedList head, int k)
 {
-	Node head;
-	Node tail;
-
-	static class Node
+	if(head == null)
 	{
-		int data;
-		Node next;
-		Node prev;
-
-		Node(int d)
-		{
-			data = d;
-		}
+		return;
 	}
 
-	public static void append(LinkedList list, int data)
+	ListNode currentNode = head;
+	int length = 0;
+
+	//get length of list by iterating through it
+	while(currentNode != null)
 	{
-		Node new_node = new Node(data);
+		length ++;
 
-		if(list.head == null)
-		{
-			list.head = new_node;
-			list.tail = new_node;
-			new_node.next = null;
-			new_node.prev = null;
-
-		}
-		else
-		{
-			Node last = list.head;
-
-			while(last.next != null)
-			{
-				last = last.next;
-			}
-
-			last.next = new_node;
-			new_node.prev = last;
-			new_node.next = null;
-			list.tail = new_node;
-		}
+		currentNode = currentNode.next;
 	}
 
-	public static Integer returnNthFromLast(LinkedList list, int n)
-	{
-		Node currentNode;
-		
-		if(list.tail == null)
-		{
-			return null;
-		}
-		else
-		{
-			currentNode = list.tail;
-	
-			for(int i = 0; i < n - 1; i++)
-			{
-				currentNode = currentNode.prev;
-			}
-		}
+	//target index is list length minus the kth index from last
+	int hit = length - k;
+	currentNode = head;
+	length = 0;
 
-		return currentNode.data;
+	//iterate to wanted node and get element
+	while(length != hit)
+	{
+		currentNode = currentNode.next;
+		lenght ++;
 	}
 
-	public static void print(LinkedList list)
-	{
-		if(list.head == null)
-		{
-			return;
-		}
-		else
-		{
-			Node currentNode = list.head;
+	return currentNode.data;
 
-			while(currentNode != null)
-			{
-				System.out.println(currentNode.data);
-
-				currentNode = currentNode.next;
-			}
-		}
-		
-	}
-
-	public static void main(String[] args)
-	{
-		LinkedList list = new LinkedList();
-
-		append(list, 1);
-		append(list, 2);
-		append(list, 3);
-		append(list, 4);
-		append(list, 5);
-
-		print(list);
-
-		System.out.println();
-
-		int ans = returnNthFromLast(list, 2);
-
-		System.out.println(ans);
-
-		
-
-	}
 }
-
-
