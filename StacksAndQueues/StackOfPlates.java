@@ -1,11 +1,15 @@
 //Joiney Nguyen
-/*Imagine a (literal) stack of plates. If the stack gets too high, it might topple.
+/* Imagine a (literal) stack of plates. If the stack gets too high, it might topple.
 Therefore, in real life, we would likely start a new stack when the previous stack exceeds some
 threshold. Implement a data structure SetOfStacks that mimics this. SetOfStacks should be
 composed of several stacks and should create a new stack once the previous one exceeds capacity.
 SetOfStacks. push () and SetOfStacks. pop () should behave identically to a single stack
 (that is, pop ( ) should return the same values as it would if there were just a single stack).
-import java.util.*; */
+import java.util.*; 
+FOLLOW UP
+Implement a function popAt (int index) which performs a pop operation on a specific sub-stack. */
+
+import java.util.*;
 
 public class SetOfStacks
 {
@@ -26,7 +30,8 @@ public class SetOfStacks
         
         stack.push(value);
     }
-
+    
+    //pop item if only arraylist is not empty and then delete the stack after popping if stack becomes empty
     public Integer pop()
     {
         if(stackSet.size() == 0)
@@ -47,16 +52,18 @@ public class SetOfStacks
        
     }
 
+    //pop the chosen stack only if stack num is larger than 0 less than actual arraylist size
     public Integer popByStack(int stackNum)
     {
-        if(stackNum > stackSet.size())
+        if(stackNum > stackSet.size() || stackNum == 0)
         {
             return null;
         }
 
         return (Integer)stackSet.get(stackNum - 1).pop();
     }
-
+    
+    //use get method to return last stack in arraylist
     public Stack getLastStack() 
     {
         if(stackSet.isEmpty())
@@ -70,6 +77,7 @@ public class SetOfStacks
 
     }
 
+    //make new stack to push value in and then add new stack to arraylist
     public void newStackPush(int value)
     {
         stack = new Stack<Integer>();
@@ -87,40 +95,15 @@ public class SetOfStacks
         s.push(4);
         s.push(5);
         s.push(6);
-        System.out.println(s.pop());
-        System.out.println(s.pop());
-        System.out.println(s.pop());
-        System.out.println(s.pop());
-        System.out.println(s.pop());
-        System.out.println(s.pop());
-        System.out.println(s.pop());
-        s.push(1);
-        System.out.println(s.pop());
-        System.out.println(s.pop());
-        s.push(1);
-        s.push(12);
-        s.push(13);
-        s.push(14);
-        s.push(15);
-        s.push(16);
-        s.push(17);
-        s.push(16);
-        s.push(15);
-        s.push(14);
-        s.push(13);
-        System.out.println(s.pop());
-        System.out.println(s.pop());
-        System.out.println(s.pop());
-        System.out.println(s.pop());
-        System.out.println(s.pop());
-        System.out.println(s.pop());
-        System.out.println(s.pop());
-        System.out.println(s.pop());
-        System.out.println(s.pop());
-        System.out.println(s.pop());
-        System.out.println(s.pop());
-        System.out.println(s.pop());
-
+        s.push(7);
+        s.push(8);
+        s.push(9);
+        s.push(10);
+        s.push(11);
+        
+        System.out.println(Arrays.toString(s.stackSet.toArray()));
+        System.out.println(s.popByStack(3));
+     
     }
 
 }
