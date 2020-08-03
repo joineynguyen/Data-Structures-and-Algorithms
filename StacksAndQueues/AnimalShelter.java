@@ -24,12 +24,7 @@ abstract class Animal
         this.order = order;
     }
 
-    public int getOrder()
-    {
-        return this.order;
-    }
-
-
+ 
 }
 
 class Dog extends Animal
@@ -65,7 +60,7 @@ class AnimalShelter
             throw new Exception("This is not a dog or cat");
         }
 
-        animal.order = count++;
+        animal.setOrder(count++);
 
         if(isDog)
         {
@@ -181,4 +176,3 @@ class Main
 
 }
 
-//
