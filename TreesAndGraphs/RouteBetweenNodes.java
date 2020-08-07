@@ -57,10 +57,10 @@ public class Solution
 				}
 
 				//if we haven't check the current node's neighbors' neighbors.. add it to queue then mark it visited
-				if(!visited.contains(current))
+				if(!visited.contains(neighbor))
 				{
-					queue.offer(current);
-					visited.add(current);
+					queue.offer(neighbor);
+					visited.add(neighbor);
 				}
 			}
 		}
