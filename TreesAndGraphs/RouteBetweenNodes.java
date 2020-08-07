@@ -29,22 +29,22 @@ public class Solution
 			return true;
 		}
 
-		//queue to offer next node to be inspected of their neighbors
+		//queue to offer next node to be inspected of their neighbor nodes
 		LinkedList<DirectedGraphNode> queue = new LinkedList<DirectedGraphNode>();
 
 		//visisted hash set to keep record if we went through the node's neighbor
 		//we do not want to encounter any loops by examinng same nodes 
 		HashSet<DirectedGraphNode> visited = new HashSet<DirectedGraphNode>();
 
-		//add start node to queue to begin algorithm of checking the nodes neighbors
+		//add 'start' node to queue to begin algorithm of checking the nodes neighbors
 		queue.offer(start);
-		//mark the start node visited as we will check its neighbors
+		//mark the 'start' node visited as its neighbors will be checked
 		visited.add(start);
 
 		//while there is more unvisited nodes in queue, keep searching their neighbors
 		while(!queue.isEmpty())
 		{
-			//dequeue from queue to current variable
+			//dequeue node from queue to current variable
 			DirectedGraphNode current = queue.poll();
 
 			//iterate through the current node's neighbors
@@ -65,7 +65,7 @@ public class Solution
 			}
 		}
 
-		//return false if we did not find our target node in any of the nodes starting at start node
+		//return false if we did not find our target node in any of the neighbor nodes starting at 'start' node's
 		return false;
 
 
