@@ -1,6 +1,6 @@
 /* 	Joiney
 	
-	We are trying to find an common parent between two nodes that are built with a parent linke
+	We are trying to find an common parent between two nodes that are built with a parent link.
 */
 
 public class Solution
