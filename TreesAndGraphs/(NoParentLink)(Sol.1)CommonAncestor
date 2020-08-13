@@ -1,0 +1,59 @@
+/*	Joiney
+	
+	Get common ancestor node of node a and node b with no parent links
+*/
+
+public class Solution
+{
+	//as long as the node a and node b are under that root
+	TreeNode getCommonAncestor(TreeNode root, TreeNode a, TreeNode b)
+	{
+		if(!covers(root, a) && !covers(root, b))
+		{
+			return null;
+		}
+
+		return ancestorHelper(root, a, b);
+	}
+
+	//when node a and node b are no longer on the same side subtree, then share the same ancestor
+	TreeNode ancestorHelper(TreeNode root, TreeNode a, TreeNode b)
+	{
+		//if traveling down and current root is either turns out to be a or b node, the we return root because they are the common ancestor
+		if(root == null || root == a || root == b)
+		{
+			return root;
+		}
+
+		//check to see if they are on left side sub tree
+		boolean aIsOnLeft = covers(root.left, a);
+		boolean bIsOnLeft = covers(root.left, b);
+
+		//if they are on different sides, return ancestor
+		if(aIsOnLeft != bIsOnLeft)
+		{
+			return root;
+		}
+
+		//get and continue down the side of subtree is node a on until it is no longer same subtree as b node
+		TreeNode nextDirection = aIsOnLeft ? root.left : root.right;
+
+		return getCommonAncestor(nextDirection, a, b);
+	}
+
+
+	boolean covers(TreeNode root, TreeNode n)
+	{
+		if(root == null)
+		{
+			return false;
+		}
+
+		if(root == n)
+		{
+			return true;
+		}
+
+		return(covers(root.left, n) || covers(root.right, n));
+	}
+}
