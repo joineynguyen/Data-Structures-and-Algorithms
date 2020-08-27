@@ -16,6 +16,7 @@ import java.util.Collections;
  * @author joineynguyen
  */
 
+//automates the whole black jack game from player and dealer actions to dealing and handling the cards
 class BlackJackAutomater
 {
     //initiate deck of cards and dealer hand
@@ -43,7 +44,7 @@ class BlackJackAutomater
         
         
     }
- 
+    //loops the game for how many rounds user wishes to automate the game for
     void playBlackJack()
     {
         int gamesPlayed = 0;
@@ -282,6 +283,7 @@ class BlackJackAutomater
    
 }
 
+//blackjack hand is different from card hand because of how cards J,Q,K have value of 10 and Ace have value of either 1 or 11
 class BlackJackHand extends Hand
 {
     
@@ -560,6 +562,7 @@ public class Main
     
     public static void main(String[] args) 
     {
+        //we automate a blackjack game of 4 players, excluding dealer, for 3 rounds.
         BlackJackAutomater myGame = new BlackJackAutomater(4, 3);
         myGame.playBlackJack();
      
