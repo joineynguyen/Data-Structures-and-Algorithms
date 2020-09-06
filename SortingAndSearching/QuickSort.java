@@ -2,57 +2,55 @@ package practice;
 
 public class Prac
 {
-    //lb = lower bound/beginning index of array. ub = upperbound of array or end index of array 
-    static int partition(int[] array, int lb, int ub)
+     public static void quickSort(int[] arr, int lb, int ub) 
     {
-        /*
-        We automatically choose the beginning index of array as our pivot element. 
-        We pivot everything less than the pivot to its left and greater than pivot to its right
-        */
-        int pivot = array[lb];
-        //Help us to swap
-        int temp;
+        //check for empty or null array
+        if (arr == null || arr.length == 0){
+            return;
+        }
+         
+        if (lb >= ub){
+            return;
+        }
         
-        while(lb < ub)
+        int temp;
+        //Get the pivot element from the middle of the list
+        int middle = lb + (ub - lb) / 2;
+        int pivot = arr[middle];
+ 
+        // make left < pivot and right > pivot
+        int start = lb, end = ub;
+        while (start <= end) 
         {
-            //We are increasing the lowerbound pointer until we find an element that is larger than pivot
-            while(array[lb] < pivot)
+            //Check until all values on left side array are lower than pivot
+            while (arr[start] < pivot) 
             {
-                lb++;
+                start++;
             }
-            //We are decreasing the uppberound pointer until we find an element that is smaller than pivot
-            while(array[ub] > pivot)
+            //Check until all values on left side array are greater than pivot
+            while (arr[end] > pivot) 
             {
-                ub--;
+                end--;
             }
-            //We then swap the elements from lb and ub pointers since they are on the wrong side of the partition
-            if(lb < ub)
+            //Now compare values from both side of lists to see if they need swapping 
+            //After swapping move the iterator on both lists
+            if (start <= end) 
             {
-                temp = array[lb];
-                array[lb] = array[ub];
-                array[ub] = temp;
+                temp = arr[start];
+                arr[start] = arr[end];
+                arr[end] = temp;
+                
+                start++;
+                end--;
             }
         }
-            
-            
-        return ub;
-    }
-    
-    /*Quick sort uses divide and conquer technique to sort. 
-    The algorthm partitions the array until the lower bound is no longer less than upperbound, hence a single element array.
-    */    
-    static int[] quickSort(int[] array, int lb, int ub)
-    {
-        //Base case. Stop when lowerbound index is higher than upperbound index
-        if(lb < ub)
-        {
-            int lock = partition(array, lb, ub);
-            //Performs recursion on left side of partition
-            quickSort(array, lb, lock - 1);
-            //Performs recursion on right side of partition
-            quickSort(array, lock + 1, ub);
+        //Do same operation as above recursively to sort two sub arrays
+        if (lb < end){
+            quickSort(arr, lb, end);
         }
-        return array;
+        if (ub > start){
+            quickSort(arr, start, ub);
+        }
     }
     
     static void print(int[] array)
@@ -65,9 +63,9 @@ public class Prac
     
     public static void main(String[] args)
     {
-        int[] array = {4, 6, 3, 2, 1, 7, 9, 8, 10};
+        int[] array = {7, 6, 10, 5, 9, 1, 15, 7};
         
-        array = quickSort(array, 0, array.length - 1);
+        quickSort(array, 0, array.length - 1);
         print(array);
     }
     
