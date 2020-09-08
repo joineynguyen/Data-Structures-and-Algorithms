@@ -16,7 +16,7 @@ public class Prac
         int right = array.length - 1;
         
         //Once left is no longer greater than right, the left and right pointer is met and we found our starting index
-        while(left < right)
+        while(left <= right)
         {
             int middle = left + (right - left) / 2;
             
