@@ -1,17 +1,3 @@
-Hello and welcome to my "Mastering Data Structures and Algorithms" repo.
-
-I understand this repo is not traditional by not involving projects.
-
-My goal is to fully understand the concept of certain data structures and algorithms in order to implement them from scratch and or solve 
-problems using these techniques with ease.
-
-Here, you can inspect my code quality, documentation, and track my progress.
-
-Each code file will contain my solution to problems that can be found in the 'Cracking the Coding Interview" book or from the website "LeetCode.com".
-
-Below are lists of what I am or will master in.
-**I will be adding in-depth documentation for each code solution in the near future. For now, most solutions contain only the problem's description.**
-
 Data Structures:
 - Linked Lists
 - Trees, Tries & Graphs
