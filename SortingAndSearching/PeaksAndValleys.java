@@ -20,7 +20,7 @@ public class prac
         }
         
         Arrays.sort(array);
-        
+        //Start at index 1 because index 0 is small by default in an sorted array. swap the current index and index + 1 to make a peak and valley pattern. We increment index by +2 since we skipping over indexes we have swapped
         for(int i = 1; i < array.length; i += 2)
         {
             swap(array, i, i + 1);
@@ -47,6 +47,6 @@ public class prac
         int[] array = {5, 3, 1, 2, 3};
         sortPeakValley(array);
         print(array);
-        //1 2 3 3 5
-    }   //1 3 2 5 3
+     
+    }  
 }
