@@ -15,7 +15,7 @@ public class MaxHeap
     {
         maxSize = capacity;
         size = 0;
-        heap = new int[capacity + 1];
+        heap = new int[capacity];
     }
     
     public int getParentIndex(int childIndex)
