@@ -29,7 +29,7 @@ class KthLargest
     public KthLargest(int k, int[] nums) 
     {
         chosenK = k;
-        
+        //Create priority queue with 3 max size so when we poll the queue it gets the 3rd largest element
         pq = new PriorityQueue<Integer>(3);
         
         for(int i : nums)
@@ -40,12 +40,14 @@ class KthLargest
     
     public int add(int val) 
     {
+        //If the queue size is smaller than k then we add them to fill up queue for comparing new additions
         if(pq.size() < chosenK)
         {
             pq.offer(val);
         }
         else
         {
+            //We do not want to add smaller numbers then the head of queue (smallest element) because it would be 4th largest number
             if(val > pq.peek())
             {
                 pq.poll();
