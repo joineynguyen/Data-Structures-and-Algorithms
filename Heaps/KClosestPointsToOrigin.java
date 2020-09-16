@@ -20,7 +20,6 @@ Since sqrt(8) < sqrt(10), (-2, 2) is closer to the origin.
 We only want the closest K = 1 points from the origin, so the answer is just [[-2,2]].
 */
 
-
 import java.util.PriorityQueue;
 import java.util.Comparator;
 import java.lang.Math;
@@ -33,13 +32,14 @@ class Solution
                                                            {
                                                                 public int compare(int[] point1, int[] point2) 
                                                                 {
-                                                                    double num1 = getHypotenuse(point1);
-                                                                    double num2 = getHypotenuse(point2);                                                                   
-                                                                    if (num1 < num2) 
+                                                                    int point1_distance = getDistance(point1);
+                                                                    int point2_distance = getDistance(point2);
+
+                                                                    if(point1_distance < point2_distance) 
                                                                     {
                                                                         return 1;
                                                                     }
-                                                                    else if (num1 > num2) 
+                                                                    else if(point1_distance > point2_distance) 
                                                                     {
                                                                         return -1;
                                                                     }
@@ -49,15 +49,9 @@ class Solution
                                                                     }
                                                                 }
 
-                                                                public double getHypotenuse(int[] point)
+                                                                public int getDistance(int[] point)
                                                                 {
-                                                                    double a = point[0];
-                                                                    double b = point[1];
-
-                                                                    a = Math.pow(a, 2);
-                                                                    b = Math.pow(b, 2);
-
-                                                                    return Math.sqrt(a + b);
+                                                                    return point[0] * point[0] + point[1] * point[1];
                                                                 }
                                                            });
         
