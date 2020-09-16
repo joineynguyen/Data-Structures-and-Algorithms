@@ -30,16 +30,17 @@ class Solution
     {
         PriorityQueue<int[]> pq = new PriorityQueue<int[]>(new Comparator<int[]>()
                                                            {
+                                                                //Custom comparator to compare distances of each point
                                                                 public int compare(int[] point1, int[] point2) 
                                                                 {
                                                                     int point1_distance = getDistance(point1);
                                                                     int point2_distance = getDistance(point2);
-
-                                                                    if(point1_distance < point2_distance) 
+                                                                    //Think of +1, -1, or 0 as priority points. the higher the points the more priority       
+                                                                    if(point1_distance < point2_distance)//Since we want the least distance to origin, we +1 when first point is shorter than 2nd point
                                                                     {
                                                                         return 1;
                                                                     }
-                                                                    else if(point1_distance > point2_distance) 
+                                                                    else if(point1_distance > point2_distance)// -1 if first point is father than second point
                                                                     {
                                                                         return -1;
                                                                     }
@@ -54,7 +55,7 @@ class Solution
                                                                     return point[0] * point[0] + point[1] * point[1];
                                                                 }
                                                            });
-        
+        //We insert each point from array of points onto the priority queue and removing the largest distant point if the priority queue size is larger than K
         for(int[] point : points)
         {
             pq.offer(point);
@@ -64,7 +65,7 @@ class Solution
                 pq.poll();
             }
         }
-        
+        //We make a new array with only K number of smallest points to origin, and 2 elements in each outter element because each point has x and a y coordinate
         int[][] result = new int[K][2];
         
         for(int i = 0; i < K; i++)
