@@ -75,7 +75,7 @@ public class Trie
 	{
 		if(index == word.length())
 		{
-			if(current.enfOfWord == false)
+			if(current.endOfWord == false)
 			{
 				return false;
 			}
