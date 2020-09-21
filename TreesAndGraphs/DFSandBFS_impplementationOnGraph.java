@@ -57,6 +57,34 @@ public class Graph
         
     }
     
+    public void bfs(int vertice)
+    {
+        boolean[] visited = new boolean[numOfVertices];
+        
+        LinkedList<Integer> queue = new LinkedList<>();
+        
+        queue.add(vertice);
+        visited[vertice] = true;
+        
+        while(!queue.isEmpty())
+        {
+            int current = queue.poll();
+            
+            Iterator<Integer> i = adj[current].listIterator();
+            
+            while(i.hasNext())
+            {
+                int neighbor = i.next();
+                
+                if(!visited[neighbor])
+                {
+                    visited[neighbor] = true;
+                    queue.add(neighbor);
+                }
+            }
+        }
+    }
+    
     public static void main(String[] args)
     {
         
